@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../src/server/services/index.js"],"names":[],"mappings":";;AAAA;;AACA;;AAEA;;AACA","file":"index.js","sourcesContent":["import './document';\nimport './oauth2';\n// import './rsvpaction-update-event-attendee';\nimport './static-file';\nimport './http-router';\n// import './thing-auto-alternate-name';\n"]}
