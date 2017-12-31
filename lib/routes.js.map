@@ -1,0 +1,1 @@
+{"version":3,"sources":["../src/server/routes.js"],"names":[],"mappings":";;;;;kBAAe;AACb,eAAa,UADA;AAEb,mBAAiB;AAFJ,C","file":"routes.js","sourcesContent":["export default {\n  '/document': 'document',\n  '/oauth2/token': 'oauth2.token',\n};\n"]}

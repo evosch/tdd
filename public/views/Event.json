@@ -1,0 +1,43 @@
+[
+  {
+    "nodeName": "article",
+    "itemscope": true,
+    "itemtype": "http://schema.org/Event",
+    "data-id": {"nodeName": "Placeholder", "ref": "context/_id"},
+    "lang": {
+      "nodeName": "Placeholder",
+      "ref": "context/inLanguage"
+    },
+    "children": [
+      {
+        "nodeName": "h1",
+        "itemprop": "name",
+        "class": "event__name",
+        "children": [
+          {
+            "nodeName": "Placeholder",
+            "ref": "context/name"
+          }
+        ]
+      },
+      {
+        "nodeName": "div",
+        "class": "event__time",
+        "children": [
+          {"nodeName": "Placeholder", "ref": "context/startDate"}
+        ]
+      },
+      {
+        "nodeName": "div",
+        "itemprop": "description",
+        "class": "event__description",
+        "children": [
+          {
+            "nodeName": "Placeholder",
+            "ref": "context/description"
+          }
+        ]
+      }
+    ]
+  }
+]

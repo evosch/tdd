@@ -1,0 +1,36 @@
+{
+  "name": "thedutchdragons.nl",
+  "version": "1.0.0",
+  "description": "The awsome website of the dutch dragons",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run build-client && npm run build-server",
+    "build-client": "node ./node_modules/webpack/bin/webpack.js",
+    "build-server": "npx babel ./src/server -d ./lib -s",
+    "test": "cross-env NODE_ENV=test mocha --compilers js:babel-core/register \"src/**/*.test.js\""
+  },
+  "author": "Erwin van Osch",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.1.1",
+    "babel-plugin-istanbul": "^4.1.5",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "cross-env": "^5.1.3",
+    "eslint": "^4.14.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.6.1",
+    "mocha": "^3.5.3",
+    "nyc": "^11.2.1",
+    "webpack": "^3.0.0"
+  },
+  "dependencies": {
+    "argon2": "^0.16.2",
+    "mongodb": "^2.2.33",
+    "nodemailer": "^4.1.1",
+    "rrule": "^2.2.0"
+  }
+}

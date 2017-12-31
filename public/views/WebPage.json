@@ -1,0 +1,21 @@
+[
+  {
+    "nodeName": "Iterator",
+    "onload": {"nodeName": "fetch", "url": ["document?alternatename=", {"nodeName": "Placeholder", "ref": "context/hasPart", "transform": "ArrayJoin"}], "to": "item"},
+    "name": "parts",
+    "data": {"nodeName": "Placeholder", "ref": "context/hasPart"},
+    "children": [
+      {
+        "nodeName": "Partial",
+        "ref": [
+          "views/",
+          {
+            "nodeName": "Placeholder",
+            "ref": "item/_type"
+          },
+          ".json"
+        ]
+      }
+    ]
+  }
+]

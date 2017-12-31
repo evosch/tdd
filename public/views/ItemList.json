@@ -1,0 +1,16 @@
+[
+  {
+    "nodeName": "ul",
+    "children": [
+      {
+        "nodeName": "Iterator",
+        "name": "item",
+        "children": [
+          {
+            "nodeName": "li",
+          }
+        ]
+      }
+    ]
+  }
+]

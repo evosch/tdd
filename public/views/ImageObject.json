@@ -1,0 +1,21 @@
+[
+  {
+    "nodeName": "figure",
+    "children": [
+      {
+        "nodeName": "img",
+        "src": {"nodeName": "Placeholder", "ref": "item/contentUrl"},
+        "alt": {"nodeName": "Placeholder", "ref": "item/description"}
+      },
+      {
+        "nodeName": "figcaption",
+        "children": [
+          {
+            "nodeName": "Placeholder",
+            "ref": "item/caption"
+          }
+        ]
+      }
+    ]
+  }
+]

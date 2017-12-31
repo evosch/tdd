@@ -1,0 +1,36 @@
+[
+  {
+    "nodeName": "article",
+    "itemscope": true,
+    "itemtype": "http://schema.org/Article",
+    "data-id": {"nodeName": "Placeholder", "ref": "context/_id"},
+    "lang": {
+      "nodeName": "Placeholder",
+      "ref": "context/inLanguage"
+    },
+    "children": [
+      {
+        "nodeName": "h1",
+        "itemprop": "name",
+        "class": "article__name",
+        "children": [
+          {
+            "nodeName": "Placeholder",
+            "ref": "context/name"
+          }
+        ]
+      },
+      {
+        "nodeName": "div",
+        "itemprop": "articleBody",
+        "class": "article__body",
+        "children": [
+          {
+            "nodeName": "Placeholder",
+            "ref": "context/articleBody"
+          }
+        ]
+      }
+    ]
+  }
+]

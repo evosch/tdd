@@ -1,0 +1,53 @@
+[
+  {
+    "nodeName": "form",
+    "method": "POST",
+    "action": "oauth2/token",
+    "onsubmit": [
+      {
+        "nodeName": "ajax"
+      }
+    ],
+    "children": [
+      {
+        "nodeName": "label",
+        "for": "username",
+        "children": [
+          "username"
+        ]
+      },
+      {
+        "nodeName": "input",
+        "id": "username",
+        "name": "username",
+        "type": "text"
+      },
+      {
+        "nodeName": "label",
+        "for": "password",
+        "children": [
+          "password"
+        ]
+      },
+      {
+        "nodeName": "input",
+        "id": "password",
+        "name": "password",
+        "type": "password"
+      },
+      {
+        "nodeName": "input",
+        "type": "hidden",
+        "name": "grant_type",
+        "value": "password"
+      },
+      {
+        "nodeName": "button",
+        "type": "submit",
+        "children": [
+          "Login"
+        ]
+      }
+    ]
+  }
+]

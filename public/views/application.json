@@ -1,0 +1,43 @@
+[
+  {
+    "nodeName": "header",
+    "children": [
+      {
+        "nodeName": "h1",
+        "children": [
+          "The Dutch Dragons"
+        ]
+      }
+    ]
+  },
+  {
+    "nodeName": "main",
+    "children": [
+      {
+        "nodeName": "Partial",
+        "onload": {
+          "nodeName": "fetch",
+          "url": [
+            "document?url=",
+            {
+              "nodeName": "Placeholder",
+              "ref": "url/pathname"
+            }
+          ],
+          "to": "context"
+        },
+        "ref": [
+          "views/",
+          {
+            "nodeName": "Placeholder",
+            "ref": "context/_type"
+          },
+          ".json"
+        ]
+      }
+    ]
+  },
+  {
+    "nodeName": "footer"
+  }
+]
