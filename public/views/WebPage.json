@@ -1,7 +1,7 @@
 [
   {
     "nodeName": "Iterator",
-    "onload": {"nodeName": "fetch", "url": ["document?alternatename=", {"nodeName": "Placeholder", "ref": "context/hasPart", "transform": "ArrayJoin"}], "to": "item"},
+    "onload": {"nodeName": "fetch", "url": ["document?alternateName=", {"nodeName": "Placeholder", "ref": "context/hasPart", "transform": "ArrayJoin"}], "to": "item"},
     "name": "parts",
     "data": {"nodeName": "Placeholder", "ref": "context/hasPart"},
     "children": [

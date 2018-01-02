@@ -8,11 +8,18 @@
         "alt": {"nodeName": "Placeholder", "ref": "item/description"}
       },
       {
-        "nodeName": "figcaption",
-        "children": [
+        "nodeName": "Condition",
+        "arg1": {"nodeName": "Placeholder", "ref": "item/caption"},
+        "operator": "null",
+        "invalid": [
           {
-            "nodeName": "Placeholder",
-            "ref": "item/caption"
+            "nodeName": "figcaption",
+            "children": [
+              {
+                "nodeName": "Placeholder",
+                "ref": "item/caption"
+              }
+            ]
           }
         ]
       }
