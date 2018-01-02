@@ -4,10 +4,10 @@
     "children": [
       {
         "nodeName": "Iterator",
-        "onload": [{
+        "onload": {
           "nodeName": "fetch",
           "url": ["document?", {"nodeName": "Placeholder", "ref": "context/query"}]
-        }],
+        },
         "name": "item",
         "children": [
           {
