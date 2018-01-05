@@ -1,7 +1,7 @@
 import { MongoClient } from 'mongodb';
 import gateway from '../gateway';
 
-let mongoConnection;
+let mongoDB;
 const MONGO_URL = 'mongodb://localhost:27017/tdd2';
 const EVERYBODY_AUDIENCE = 'everybody';
 const GUEST_AUDIENCE = 'guests';
@@ -10,10 +10,10 @@ const GUEST_AUDIENCE = 'guests';
  * @returns {Promise} the promise of a database connection
  */
 function db() {
-  if (mongoConnection) { return Promise.resolve(mongoConnection); }
-  return MongoClient.connect(MONGO_URL).then((connection) => {
-    mongoConnection = connection;
-    return Promise.resolve(mongoConnection);
+  if (mongoDB) { return Promise.resolve(mongoDB); }
+  return MongoClient.connect(MONGO_URL).then((client) => {
+    mongoDB = client.db('tdd2');
+    return Promise.resolve(mongoDB);
   });
 }
 
