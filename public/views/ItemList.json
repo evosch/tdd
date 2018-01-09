@@ -8,11 +8,24 @@
           "nodeName": "fetch",
           "url": ["document?", {"nodeName": "Placeholder", "ref": "context/query"}]
         },
+        "data": {"nodeName": "Placeholder", "ref": ["document?", {"nodeName": "Placeholder", "ref": "context/query"}]},
         "name": "item",
         "children": [
           {
             "nodeName": "li",
-            "children": []
+            "children": [
+              {
+                "nodeName": "Partial",
+                "ref": [
+                  "views/item/",
+                  {
+                    "nodeName": "Placeholder",
+                    "ref": "item/_type"
+                  },
+                  ".json"
+                ]
+              }
+            ]
           }
         ]
       }

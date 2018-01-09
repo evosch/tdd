@@ -2,7 +2,9 @@ import renderer, { renderConnectedAttribute } from '../renderer';
 
 /**
  * Validate a condition
- * @param {object} condition the structure to validate
+ * @param {any} arg1 argument 1
+ * @param {string} operator the comparison way
+ * @param {any} arg2 argument 2
  * @returns {boolean} wether it's valid or not
  */
 function validateCondition(arg1, operator, arg2) {

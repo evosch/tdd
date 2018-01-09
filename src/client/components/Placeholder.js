@@ -1,6 +1,7 @@
 import { get } from '../helpers';
 import { watch } from '../observer';
 import transformers from '../transformers';
+import { renderConnectedAttribute, RENDER_FAIL_ON_UNDEFINED } from '../renderer';
 
 /**
  * Fetch the value from a placeholder
@@ -9,12 +10,16 @@ import transformers from '../transformers';
  */
 export default function Placeholder(structure) {
   let value;
-  if (structure.ref.startsWith('$')) {
-    value = this.context[structure.ref.slice(1)];
-  } else {
-    value = get(this.store, structure.ref);
-    watch.call(this, structure.ref, structure);
+  let ref;
+  try {
+    ref = renderConnectedAttribute.call(this, structure.ref, structure, RENDER_FAIL_ON_UNDEFINED);
+  } catch (err) {
+    return null;
   }
+
+  value = get(this.store, ref);
+  watch.call(this, ref, structure);
+
   if (structure.transform) {
     value = transformers[structure.transform](value, structure);
   }

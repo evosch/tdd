@@ -47,6 +47,8 @@ function staticFile(req, res) {
 
       const fileStream = fs.createReadStream(pathname);
       fileStream.on('open', () => {
+        // since we're serving a static file TODO only switch on live, since it suck while developing
+        res.setHeader('Cache-Control', 'public,max-age=31536000,immutable');
         const baseName = path.basename(pathname);
         if (fileMimeMap[baseName]) {
           res.setHeader('Content-Type', extMimeMap[baseName]);

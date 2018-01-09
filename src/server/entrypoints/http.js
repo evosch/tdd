@@ -3,7 +3,6 @@ import querystring from 'querystring';
 import { StringDecoder } from 'string_decoder';
 import url from 'url';
 import gateway from '../gateway';
-import zlib from 'zlib';
 
 const methodMapping = {
   POST: 'create',
@@ -48,6 +47,18 @@ function handleRequest(request, response) {
 }
 
 /**
+ * decoded a application/x-www-form-urlencoded string
+ * @param {*} request the request object
+ * @param {*} options any options specified
+ * @returns {void}
+ */
+function formUrlencoded(request, options) {
+  const decoder = new StringDecoder(options.charset || 'utf8');
+  const decodedBody = decoder.end(request.rawBody);
+  request.body = querystring.parse(decodedBody);
+}
+
+/**
  * Parse any body send with te request
  * @param {*} request the request object
  * @param {*} response the response object
@@ -64,9 +75,7 @@ function parseBody(request, response, buffer) {
 
     switch (contentType) {
       case 'application/x-www-form-urlencoded':
-        const decoder = new StringDecoder( options.charset || 'utf8');
-        const decodedBody = decoder.end(request.rawBody);
-        request.body = querystring.parse(decodedBody);
+        formUrlencoded(request, options);
         break;
       // TODO implement 'multipart/form-data':
       default:
@@ -100,4 +109,4 @@ const httpServer = createServer((request, response) => {
   // which would also work for websockets e.a.
 });
 
-httpServer.listen(80);
+httpServer.listen(8080);

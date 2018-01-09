@@ -1,5 +1,6 @@
-import { get } from '../helpers';
+import { get, set } from '../helpers';
 import { renderAttribute } from '../renderer';
+import { SCOPE } from '..';
 
 export const FETCH_STATE = '::fetch';
 
@@ -12,8 +13,10 @@ export const FETCH_STATE = '::fetch';
  */
 function setFetchState(url, structure, data) {
   const state = {};
+  state[`${FETCH_STATE}/${url}`] = false;
   state[url] = data;
   if (structure.to) {
+    this.context[SCOPE][structure.to] = url;
     state[structure.to] = data;
   }
   this.setState(state);
@@ -79,6 +82,10 @@ export default function fetch(structure) {
   const state = get(this.store, `${FETCH_STATE}/${url}`);
 
   if (!storedResponse && !state) {
+    // set the store directly to prevent it from firing twice
+    set(this.store, `${FETCH_STATE}/${url}`, true);
+
+    // set the state for any listeners (is a bit double)
     this.setState(`${FETCH_STATE}/${url}`, true);
 
     const fetchOptions = { method: (structure.method || 'GET').toUpperCase(), headers };
@@ -94,7 +101,7 @@ export default function fetch(structure) {
       }
       return response.json();
     }).then((data) => {
-      this.setState(`${FETCH_STATE}/${url}`, false);
+      this.observerParentStructure = null; // weird behavior
       setFetchState.call(this, url, structure, data);
     });
   }

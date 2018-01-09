@@ -71,11 +71,10 @@ export function renderAttribute(structure, flags) {
     return null;
   }
   if (Array.isArray(structure)) {
-    const attr = structure.map(item => renderAttribute.call(this, item, flags));
     if (flags & RENDER_ALLOW_ARRAY){
-      return attr;
+      return structure;
     }
-    return attr.join('');
+    return structure.map(item => renderAttribute.call(this, item, flags)).join('');
   }
   if (startsWithCapital(structure.nodeName)) {
     return renderComponent.call(this, structure, flags | RENDER_AS_ATTRIBUTE);

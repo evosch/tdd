@@ -65,6 +65,27 @@ export function set(object, path, value) {
 }
 
 /**
+ * Create a copy of the entire object
+ * @param {*} origin the original object or array
+ * @returns {*} the copy
+ */
+export function copy(origin) {
+  let result;
+  if (Array.isArray(origin)) {
+    result = [];
+    origin.forEach((value) => {
+      result.push(value);
+    });
+  } else {
+    result = {};
+    Object.keys(origin).forEach((key) => {
+      result[key] = (typeof origin[key] === 'object' ? copy(origin[key]) : origin[key]);
+    });
+  }
+  return result;
+}
+
+/**
  * Deep Merge two objects
  * @param {*} origin the object to add to
  * @param {*} extra the object to add

@@ -1,3 +1,6 @@
+import { SCOPE } from '.';
+import { copy } from './helpers';
+
 /**
  * initialize the observers
  * @param {HTMLElement} target the rootElement
@@ -45,11 +48,22 @@ export function cleanup() {
  */
 export function watch(path, structure) {
   // create a copy of the context object
-  const context = Object.assign({}, this.context);
+  const context = copy(this.context); // Object.assign({}, this.context);
+  const realPath = resolvePath.call(this, path);
   if (this.observerParentStructure) {
     const parentStructure = Object.assign({}, this.observerParentStructure);
-    this.observers.push({ watch: path, structure: parentStructure, node: this.observableNode, context });
+    this.observers.push({ watch: realPath, structure: parentStructure, node: this.observableNode, context });
   } else {
-    this.observers.push({ watch: path, structure, node: this.observableNode, context });
+    this.observers.push({ watch: realPath, structure, node: this.observableNode, context });
   }
+}
+
+function resolvePath(path) {
+  const scopedKeys = Object.keys(this.context[SCOPE]);
+  const relPath = path.split('/');
+  const firstBranch = relPath.shift();
+  if (scopedKeys.indexOf(firstBranch) !== -1) {
+    return this.context[SCOPE][firstBranch] + '/' + relPath.join('/');
+  }
+  return path;
 }

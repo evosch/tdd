@@ -2,8 +2,9 @@ import renderer from './renderer';
 import BASE_COMPONENTS from './components';
 import BASE_EVENTS from './events';
 import { startObserver, observerAttachNode, cleanup } from './observer';
-import { set, cloneObject, emptyObject } from './helpers';
+import { set, get, cloneObject, emptyObject } from './helpers';
 
+export const SCOPE = '::scope';
 /**
  * The generic app class
  */
@@ -22,6 +23,9 @@ class App {
     this.events = BASE_EVENTS;
     this.rendering = false;
     this.futureState = {};
+    
+    this.context = {};
+    this.context[SCOPE] = {};
 
     startObserver.call(this, target);
 
@@ -86,6 +90,12 @@ class App {
     // perform the render action on these nodes
     reducedActiveObservers.forEach((observer) => {
       this.context = observer.context;
+      // re-move scope
+      Object.keys(this.context[SCOPE]).forEach((key) => {
+        const path = this.context[SCOPE][key];
+        this.store[key] = get(this.store, path);
+      });
+
       this.observableNode = observer.node;
       // create a copy of the cursor so we know where the old node was
       const cursorStart = observer.structure.cursorStart;
