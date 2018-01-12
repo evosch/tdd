@@ -27,7 +27,19 @@
         "children": [
           {
             "nodeName": "Placeholder",
-            "ref": "context/articleBody"
+            "ref": "context/articleBody",
+            "transform": "RawHtml"
+          }
+        ]
+      },
+      {
+        "nodeName": "div",
+        "itemprop": "author",
+        "class": "article__author",
+        "children": [
+          {
+            "nodeName": "Placeholder",
+            "ref": "context/author"
           }
         ]
       }

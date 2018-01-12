@@ -1,3 +1,7 @@
 [{
-  "nodeName": "h3", "children": [{"nodeName": "Placeholder", "ref": "item/name"}]
+  "nodeName": "h3", "children": [
+    {"nodeName": "a", "href": [{"nodeName": "Placeholder", "ref": "item/url"}], "children": [
+      {"nodeName": "Placeholder", "ref": "item/name"}
+    ]}
+  ]
 }]

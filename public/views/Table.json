@@ -1,0 +1,29 @@
+[
+  {
+    "nodeName": "table",
+    "children": [
+      {
+        "nodeName": "Iterator",
+        "onload": {
+          "nodeName": "fetch",
+          "url": ["document?", {"nodeName": "Placeholder", "ref": "context/query"}]
+        },
+        "data": {"nodeName": "Placeholder", "ref": ["document?", {"nodeName": "Placeholder", "ref": "context/query"}]},
+        "name": "item",
+        "children": [
+          {
+            "nodeName": "tr",
+            "children": [
+              {
+                "nodeName": "td",
+                "children": [
+                  {"nodeName": "Placeholder", "ref": "item/_id"}
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

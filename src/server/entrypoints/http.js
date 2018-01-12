@@ -37,6 +37,7 @@ function handleRequest(request, response) {
     }
   }).catch((err) => {
     console.error(err);
+    response.setHeader('cache-control', 'public, no-store');
     response.statusCode = 500;
     if (typeof err === 'object') {
       err = err.toString();
